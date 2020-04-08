@@ -1,0 +1,24 @@
+{
+  "type":           "Education Type",
+  "name":           "Name of education",
+  "school":         "School",
+  "location":       "Location",
+  "graduationYear": 2015,
+  "startYear":      2012,
+  "projects": [
+    {
+      "title": "Project 1",
+      "name":  "Name of project 1",
+      "supervisors": [
+        {
+          "firstName": "First name 1",
+          "lastName":  "Last name 1"
+        },
+        {
+          "firstName": "First name 2",
+          "lastName":  "Last name 2"
+        }
+      ]
+    }
+  ]
+}

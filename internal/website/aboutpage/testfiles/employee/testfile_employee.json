@@ -1,0 +1,19 @@
+{
+  "name":      "Company",
+  "position":  "Position",
+  "sinceMonth": 1,
+  "sinceYear":  2018,
+  "toMonth": 3,
+  "toYear": 2020,
+  "body":       "Body",
+  "projects": [
+    {
+      "name": "Project 1",
+      "body": "Body to project 1"
+    },
+    {
+      "name": "Project 2",
+      "body": "Body to project 2"
+    }
+  ]
+}
