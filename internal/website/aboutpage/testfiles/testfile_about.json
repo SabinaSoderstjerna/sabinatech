@@ -1,0 +1,15 @@
+{
+  "name": {
+    "firstName": "first",
+    "lastName": "last"
+  },
+  "birthday": "2019-01-01",
+  "body": "body",
+  "socialMediaKeys": {
+    "linkedin": "linkedin",
+    "github": "github",
+    "facebook": "facebook",
+    "instagram": "instagram",
+    "pinterest": "pinterest"
+  }
+}

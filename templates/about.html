@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>sabina.tech</title>
+    <link href="/static/images/icon.png" rel="icon" type="image/png" />
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+    <!-- Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- External Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Arapey|Sacramento">
+
+    <meta name="author" content="Sabina Söderstjerna" />
+    <meta name="description" content="" />
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="/static/topToButtonScript.js"></script>
+</head>
+<body>
+<button onclick="topFunction()" id="top-to-btn" title="Go to top"><em class="fa fa-angle-double-up"></em></button>
+<!-- webpage content goes here in the body -->
+<div id="page">
+    <div class="navbar">
+        <h1><a href="welcome">sabina.tech</a></h1>
+    </div>
+    <div class="row">
+        <div class="side">
+            <div class="side-container">
+                <div class="img-container"><img src="/static/images/Sabina.jpg" alt="{{.Name.FirstName}}" /></div>
+            </div>
+            <div class="side-container">
+                <a href="{{.SocialMedia.LinkedIn}}" target="_blank" rel="noopener"  class="fa fa-linkedin"></a>
+                <a href="{{.SocialMedia.GitHub}}" target="_blank" rel="noopener" class="fa fa-github"></a>
+                <a href="{{.SocialMedia.Facebook}}" target="_blank" rel="noopener"  class="fa fa-facebook"></a>
+                <a href="{{.SocialMedia.Instagram}}" target="_blank" rel="noopener"  class="fa fa-instagram"></a>
+                <a href="{{.SocialMedia.Pinterest}}" target="_blank" rel="noopener"  class="fa fa-pinterest"></a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main-container">
+                <h1>{{.Name.FirstName}} {{.Name.LastName}}</h1>
+                <p>{{.Age}} years old. {{.Body}}
+                </p>
+            </div>
+            <div class="main-container">
+                <div class="main-split">
+                    <div class="split-left">
+                <h1>Vocational Experience</h1>
+                <ul class="education">
+                    {{range .VocationalExperience}}
+                        <li class="heading">{{.Name}}
+                            {{if gt .SinceMonth 0}}({{.SinceMonth}} {{else}} ( {{- end -}} {{.SinceYear}} -
+                            {{if gt .ToMonth 0}}{{.ToMonth}} {{else}} {{end}}
+                            {{if gt .ToYear 0}}{{.ToYear}} {{- else}} Now {{- end}})</li>
+                        <h4>{{.Position}}</h4>
+                        <li class="text">{{.Body}}</li>
+                        {{range .Projects}}
+                            <li class="heading-2">{{.Title}}</li>
+                            <h4>{{.Name}}</h4>
+                            <li class="text">{{.Body}}</li>
+                        {{end}}
+                    {{end}}
+                </ul>
+                    </div>
+                    <div class="split-right">
+                        <h1>Non-profit Experience</h1>
+                        <ul class="education">
+                            {{range .NonProfitExperience}}
+                                <li class="heading">{{.Name}}
+                                    {{if gt .SinceMonth 0}}({{.SinceMonth}} {{else}} ( {{- end -}} {{.SinceYear}} -
+                                    {{if gt .ToMonth 0}}{{.ToMonth}} {{else}} {{end}}
+                                    {{if gt .ToYear 0}}{{.ToYear}} {{- else}} Now {{- end}})</li>
+                                <h4>{{.Position}}</h4>
+                                <li class="text">{{.Body}}</li>
+                                {{range .Projects}}
+                                    <li class="heading-2">{{.Title}}</li>
+                                    <h4>{{.Name}}</h4>
+                                    <li class="text">{{.Body}}</li>
+                                {{end}}
+                            {{end}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <div class="main-container">
+                <h1>Education</h1>
+                <ul class="education">
+                    {{range .Education}}
+                        <li class="heading">
+                            {{if eq .Type "masters" "bachelor"}} {{.Type}} Degree
+                            {{else}} Other Courses
+                            {{end}}
+                        </li>
+                        <li class="text">{{.Name}} - {{.School}}, {{.Location}}
+                            {{if gt .StartYear 0}} ({{.StartYear}} - {{.GraduationYear}})
+                            {{else}} ({{.GraduationYear}})
+                            {{end}}
+                        </li>
+                        {{range .Projects}}
+                            <li class="heading-2">{{.Title}}</li>
+                            <li class="text"><em>{{.Name}}</em><br>
+                                Supervisors: {{range .Supervisors}}{{.FirstName}} {{.LastName}}{{end}}<br>
+                                {{.Body}}
+                            </li>
+                        {{end}}
+                    {{end}}
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
