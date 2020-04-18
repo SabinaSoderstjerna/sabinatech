@@ -1,6 +1,7 @@
 # Run a complete build
 .PHONY: all
 all: \
+	npm-install \
 	markdown-lint \
 	json-lint \
 	html-lint \
@@ -13,7 +14,16 @@ all: \
 
 export GO111MODULE := on
 
-golangci_lint ?= files/golangci-lint/
+FILE_DIR ?= ./files
+BIN_DIR ?= $(FILE_DIR)/node_modules/.bin
+
+# Linters
+golangci_lint ?= $(FILE_DIR)/golangci-lint
+markdownlint ?= $(BIN_DIR)/markdownlint
+jsonlint-cli ?= $(BIN_DIR)/jsonlint-cli
+htmlhint ?= $(BIN_DIR)/htmlhint
+stylelint ?= $(BIN_DIR)/stylelint
+yaml-validator ?= $(BIN_DIR)/yaml-validator
 
 # Clean after a build
 .PHONY: clean
@@ -33,30 +43,30 @@ npm-install:
 
 # markdown-lint: lint checking markdown files
 .PHONY: markdown-lint
-markdown-lint: npm-install
-	markdownlint **/*.md --ignore files
+markdown-lint: $(markdownlint)
+	$< **/*.md --ignore files
 
 # json-lint: lint checking json files with jsonlint-cli
 .PHONY: json-lint
-json-lint: npm-install
-	jsonlint-cli **/*.json --ignore files
+json-lint: $(jsonlint-cli)
+	$< **/*.json --ignore files
 
 # html-lint: lint checking json files with htmlhint
 .PHONY: html-lint
-html-lint: npm-install
+html-lint: $(htmlhint)
 	# custom rules: id-class-value=dash
-	htmlhint --rules id-class-value=dash --ignore files
+	$< --rules id-class-value=dash --ignore files
 
 # css-lint: lint checking css files with stylelint
 .PHONY: css-lint
-css-lint: npm-install
-	@[ -f ./files/.stylelintrc.json ] || echo "{\n\t\"extends\": \"stylelint-config-standard\"\n}" > ./files/.stylelintrc.json
-	stylelint static/stylesheets/*.css --allow-empty-input --config ./files/.stylelintrc.json --cache --cache-location ./files/.stylelintcache
+css-lint: $(stylelint)
+	@[ -f $(FILE_DIR)/.stylelintrc.json ] || echo "{\n\t\"extends\": \"stylelint-config-standard\"\n}" > $(FILE_DIR)/.stylelintrc.json
+	$< static/stylesheets/*.css --allow-empty-input --config ./files/.stylelintrc.json --cache --cache-location $(FILE_DIR)/.stylelintcache
 
 # yaml-lint: lint checking yaml files with yaml-validator
 .PHONY: yaml-lint
-yaml-lint: npm-install
-	yaml-validator *.yaml
+yaml-lint: $(yaml-validator)
+	$< *.yaml
 
 # go-lint: lint checking go files with GolangCI-Lint
 .PHONY: go-lint
@@ -64,7 +74,7 @@ go-lint: $(golangci_lint)
 	# Disabled
 	# wsl: too strict
 	# interfacer: deprecated
-	$<golangci-lint run --enable-all --disable wsl,interfacer
+	$</golangci-lint run --enable-all --disable wsl,interfacer
 
 $(golangci_lint): go.mod
 	@[ -d $@ ] || mkdir -p $@ | go build -o $@ github.com/golangci/golangci-lint/cmd/golangci-lint
