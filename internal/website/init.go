@@ -20,7 +20,7 @@ func InitAboutHandler() *handler.Handler {
 
 func InitIndexHandler() *handler.Handler {
 	fmt.Printf("Init IndexHandler")
-	return &handler.Handler{Pattern: "/", Page: "welcome-page.html"}
+	return &handler.Handler{Pattern: "/", Page: "index.html"}
 }
 
 func InitHTTPMux(handlers []*handler.Handler) *http.ServeMux {
@@ -35,5 +35,5 @@ func InitHTTPMux(handlers []*handler.Handler) *http.ServeMux {
 
 func InitHTTPServer(mux *http.ServeMux) *http.Server {
 	fmt.Println("Init HTTP server")
-	return &http.Server{Addr: ":8080", Handler: mux}
+	return &http.Server{Addr: "0.0.0.0:8080", Handler: mux}
 }
