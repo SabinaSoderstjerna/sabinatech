@@ -1,0 +1,25 @@
+{
+  "type":           "masters",
+  "name":           "Sustainable Energy Systems",
+  "school":         "Chalmers University of Technology",
+  "location":       "Gothenburg",
+  "graduationYear": 2017,
+  "startYear":      2015,
+  "projects": [
+    {
+    "title": "Master Thesis",
+    "name":  "The Value of Ecosystem Services from Swedish Cattle Production",
+    "supervisors": [
+      {
+        "firstName": "Christel",
+        "lastName":  "Cederberg"
+      },
+      {
+        "firstName": "Oskar",
+        "lastName":  "Englund"
+      }
+    ],
+    "body": "The purpose with the thesis is to economically evaluate the ecosystem services that is affected by Swedish cattle production land usage. It was within the framework of a research project founded by Swedish farmers’ foundation for agricultural research led by Christel Cederberg"
+  }
+  ]
+}

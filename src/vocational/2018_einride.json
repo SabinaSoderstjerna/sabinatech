@@ -1,0 +1,17 @@
+ {
+    "name":      "Einride AB",
+    "position":   "Team Lead",
+    "sinceMonth": 1,
+    "sinceYear":  2018,
+    "body":       "",
+    "projects": [
+      {
+      "name": "Vehicle Owner",
+      "body": "Technical product owner of one prototype series of vehicles"
+      },
+      {
+      "name": "Software Engineer",
+      "body": "Mixed software development of an autonomous electric truck using GoLang, Java, Docker and Google Cloud Console."
+      }
+    ]
+  }
