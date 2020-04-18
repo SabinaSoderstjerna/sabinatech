@@ -1,0 +1,9 @@
+{
+  "name":       "Student Council",
+  "sinceMonth": 3,
+  "sinceYear":  2016,
+  "toMonth":    3,
+  "toYear":     2017,
+  "position":   "Member",
+  "body":       "Chalmers Student Union highest decision-making body where we among things make decisions about the unions budget and operational plan"
+}

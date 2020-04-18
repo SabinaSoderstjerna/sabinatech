@@ -1,0 +1,25 @@
+{
+  "type":           "bachelor",
+  "name":           "Engineering Mathematics",
+  "school":         "Chalmers University of Technology",
+  "location":       "Gothenburg",
+  "graduationYear": 2015,
+  "startYear":      2012,
+  "projects": [
+    {
+      "title": "Bachelor Thesis",
+      "name":  "Analys av dagens och framtidens koldioxidemissioner längs Europaväg 39 - en del av det norska projektet Ferjefri E39",
+      "supervisors": [
+        {
+          "firstName": "Mikael",
+          "lastName":  "Odenberger"
+        },
+        {
+          "firstName": "Maria",
+          "lastName":  "Taljegård"
+        }
+      ]
+    }
+    ],
+    "body": "A MATLAB-model as well as an analysis of different vehicle technologies with respect to energy consumption, CO2-emissions, efficiency and cost was preformed."
+}
