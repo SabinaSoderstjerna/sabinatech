@@ -1,0 +1,4 @@
+steps:
+  - name: gcr.io/sabinatech/cloud-builder
+    entrypoint: make
+    args: ['all']
