@@ -1,13 +1,13 @@
  {
     "name":      "Einride AB",
-    "position":   "Team Lead",
     "sinceMonth": 1,
     "sinceYear":  2018,
-    "body":       "",
+    "position":   "Team Lead",
+    "body":       "Team lead for a small development team with ownership of validation, verification of autonomous systems and platforms. ",
     "projects": [
       {
       "name": "Vehicle Owner",
-      "body": "Technical product owner of one prototype series of vehicles"
+      "body": "Technical product owner of one prototype series of autonomous electric trucks."
       },
       {
       "name": "Software Engineer",
