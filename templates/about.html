@@ -100,7 +100,11 @@
                         {{range .Projects}}
                             <li class="heading-2">{{.Title}}</li>
                             <li class="text"><em>{{.Name}}</em><br>
-                                Supervisors: {{range .Supervisors}}{{.FirstName}} {{.LastName}}{{end}}<br>
+                                Supervisors:
+                                {{range $i, $e := .Supervisors}}
+                                    {{if $i}},{{end}}
+                                    {{$e.FirstName}} {{$e.LastName }}
+                                {{end}}<br>
                                 {{.Body}}
                             </li>
                         {{end}}
